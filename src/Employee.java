@@ -1,4 +1,4 @@
-public class Employee {
+public class Employee implements Comparable{
 
     private Long employeeNumber;
 
@@ -7,6 +7,13 @@ public class Employee {
     private String name;
 
     private Integer experience;
+
+    public Employee(Long employeeNumber, String telephoneNumber, String name, Integer experience) {
+        this.employeeNumber = employeeNumber;
+        this.telephoneNumber = telephoneNumber;
+        this.name = name;
+        this.experience = experience;
+    }
 
     public Long getEmployeeNumber() {
         return employeeNumber;
@@ -68,5 +75,10 @@ public class Employee {
                 "табельный номер: " + employeeNumber +
                 ", номер телефона: " + telephoneNumber +
                 ", опыт работы " + experience + " лет";
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return hashCode() - o.hashCode();
     }
 }

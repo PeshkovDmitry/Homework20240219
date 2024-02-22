@@ -1,28 +1,38 @@
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class EmployeeDictionary {
 
-    private Map<Long, Employee> employeeMap;
-
-    public EmployeeDictionary() {
-        employeeMap = new HashMap<Long, Employee>();
-    }
+    private Set<Employee> employeeSet = new TreeSet<>();
 
     public void add(Employee employee) {
-        employeeMap.put(employee.getEmployeeNumber(), employee);
+
+        employeeSet.add(employee);
     }
 
-    public List<Employee> getByExpirence(Integer expirence) {
-        return employeeMap
-                .entrySet()
+    public Set<Employee> getByExpirence(Integer expirence) {
+        return employeeSet
                 .stream()
-                .filter((e) -> e.getValue().getExperience() == expirence)
-                .forEach((e) -> e.getValue()).
-
+                .filter((e) -> e.getExperience().equals(expirence))
+                .collect(Collectors.toSet());
     }
 
+    public Set<Employee> getByTelephoneNumber(String telephoneNumber) {
+        return employeeSet
+                .stream()
+                .filter((e) -> e.getTelephoneNumber().equals(telephoneNumber))
+                .collect(Collectors.toSet());
+    }
+
+    public Employee getByEmployeeNumber(Long employeeNumber) {
+        return employeeSet
+                .stream()
+                .filter((e) -> e.getEmployeeNumber().equals(employeeNumber))
+                .findAny()
+                .get();
+    }
 
 }
