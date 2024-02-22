@@ -12,8 +12,8 @@ public class Main {
         }
         System.out.println();
 
-        for (Employee e: dict.getByTelephoneNumber("123")) {
-            System.out.println(e);
+        for (String name: dict.getNameByTelephoneNumber("123")) {
+            System.out.println(name);
         }
         System.out.println();
 

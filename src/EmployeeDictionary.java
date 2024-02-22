@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -20,10 +18,11 @@ public class EmployeeDictionary {
                 .collect(Collectors.toSet());
     }
 
-    public Set<Employee> getByTelephoneNumber(String telephoneNumber) {
+    public Set<String> getNameByTelephoneNumber(String telephoneNumber) {
         return employeeSet
                 .stream()
                 .filter((e) -> e.getTelephoneNumber().equals(telephoneNumber))
+                .map(Employee::getName)
                 .collect(Collectors.toSet());
     }
 
