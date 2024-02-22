@@ -18,11 +18,11 @@ public class EmployeeDictionary {
                 .collect(Collectors.toSet());
     }
 
-    public Set<String> getNameByTelephoneNumber(String telephoneNumber) {
+    public Set<String> getTelephoneNumberByName(String name) {
         return employeeSet
                 .stream()
-                .filter((e) -> e.getTelephoneNumber().equals(telephoneNumber))
-                .map(Employee::getName)
+                .filter((e) -> e.getName().equals(name))
+                .map(Employee::getTelephoneNumber)
                 .collect(Collectors.toSet());
     }
 

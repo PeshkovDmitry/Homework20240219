@@ -12,7 +12,7 @@ public class Main {
         }
         System.out.println();
 
-        for (String name: dict.getNameByTelephoneNumber("123")) {
+        for (String name: dict.getTelephoneNumberByName("Мария")) {
             System.out.println(name);
         }
         System.out.println();
